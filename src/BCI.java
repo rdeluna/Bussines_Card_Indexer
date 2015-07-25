@@ -3,6 +3,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 
+import company_project.SqliteConnection;
+
+import java.sql.*;
+import java.util.Collection;
+
 
 public class BCI {
 
@@ -27,8 +32,16 @@ public class BCI {
 	/**
 	 * Create the application.
 	 */
+	Connection connection = null;
+	
+	
 	public BCI() {
 		initialize();
+		connection = SqliteConnection.dbConnector();
+		
+		
+		
+		
 	}
 
 	/**
