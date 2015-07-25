@@ -3,7 +3,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 
-import company_project.SqliteConnection;
+
 
 import java.sql.*;
 import java.util.Collection;
