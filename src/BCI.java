@@ -41,15 +41,15 @@ public class BCI {
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnAddCard = new JButton("Add Card");
-		btnAddCard.setBounds(638, 62, 187, 62);
+		btnAddCard.setBounds(638, 48, 187, 62);
 		frame.getContentPane().add(btnAddCard);
 		
 		JButton btnSearchCard = new JButton("Search for a Card");
-		btnSearchCard.setBounds(638, 181, 187, 62);
+		btnSearchCard.setBounds(638, 168, 187, 62);
 		frame.getContentPane().add(btnSearchCard);
 		
 		JButton btnRemoveCard = new JButton("Remove a Card");
-		btnRemoveCard.setBounds(638, 304, 187, 62);
+		btnRemoveCard.setBounds(638, 277, 187, 62);
 		frame.getContentPane().add(btnRemoveCard);
 	}
 }
