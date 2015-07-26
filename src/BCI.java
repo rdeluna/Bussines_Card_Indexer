@@ -13,11 +13,13 @@ import java.util.Collection;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
 
 
 public class BCI {
 
-	private JFrame frame;
+	private JFrame frmBci;
 
 	/**
 	 * Launch the application.
@@ -27,7 +29,7 @@ public class BCI {
 			public void run() {
 				try {
 					BCI window = new BCI();
-					window.frame.setVisible(true);
+					window.frmBci.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -54,32 +56,43 @@ public class BCI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 999, 451);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmBci = new JFrame();
+		frmBci.setTitle("BCI");
+		frmBci.setBounds(100, 100, 999, 451);
+		frmBci.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmBci.getContentPane().setLayout(new CardLayout(0, 0));
 		
-		JButton btnAddCard = new JButton("Add Card");
-		btnAddCard.setBounds(638, 48, 187, 62);
-		frame.getContentPane().add(btnAddCard);
+		JPanel panel = new JPanel();
+		frmBci.getContentPane().add(panel, "name_482648056783477");
+		panel.setLayout(null);
 		
-		JButton btnSearchCard = new JButton("Search for a Card");
-		btnSearchCard.setBounds(638, 168, 187, 62);
-		frame.getContentPane().add(btnSearchCard);
-		
-		JButton btnRemoveCard = new JButton("Remove a Card");
-		btnRemoveCard.setBounds(638, 277, 187, 62);
-		frame.getContentPane().add(btnRemoveCard);
-		
-		JLabel lblNewLabel = new JLabel("Total cards in DB");
+		JLabel lblNewLabel = new JLabel("Cards in DB");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(50, 289, 200, 50);
-		frame.getContentPane().add(lblNewLabel);
+		lblNewLabel.setBounds(68, 286, 200, 50);
+		panel.add(lblNewLabel);
 		
-		JLabel lblcardCount = new JLabel("");
-		lblcardCount.setHorizontalAlignment(SwingConstants.CENTER);
-		lblcardCount.setBounds(293, 289, 200, 50);
-		frame.getContentPane().add(lblcardCount);
+		JLabel lblDBCount = new JLabel("0");
+		lblDBCount.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDBCount.setBounds(301, 286, 200, 50);
+		panel.add(lblDBCount);
+		
+		JButton btnAdd = new JButton("Add Card");
+		btnAdd.setBounds(625, 48, 257, 74);
+		panel.add(btnAdd);
+		
+		JButton btnSearchCards = new JButton("Search Cards");
+		btnSearchCards.setBounds(625, 157, 257, 74);
+		panel.add(btnSearchCards);
+		
+		JButton btnUpdateDelete = new JButton("Update / Delete Cards");
+		btnUpdateDelete.setBounds(625, 262, 257, 74);
+		panel.add(btnUpdateDelete);
+		
+		JPanel panel_1 = new JPanel();
+		frmBci.getContentPane().add(panel_1, "name_482653337944652");
+		
+		JPanel panel_2 = new JPanel();
+		frmBci.getContentPane().add(panel_2, "name_482658595854250");
 		connection = SqliteConnection.dbConnector();
 		
 		try 
@@ -95,13 +108,8 @@ public class BCI {
 					
 				}
 				
-				
-				
-				
-				lblcardCount.setText(String.valueOf(records)); //update the screen
-				
 
-				
+				lblDBCount.setText(String.valueOf(records));
 				rst.close();
 				pst.close();
 		}
