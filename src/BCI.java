@@ -125,8 +125,16 @@ public class BCI {
 
 		
 		JButton btnNewButton = new JButton("return");
-		btnNewButton.setBounds(518, 278, 187, 66);
+		btnNewButton.setBounds(745, 319, 187, 66);
 		panel_AddCard.add(btnNewButton);
+		
+		JButton btnClearInfo = new JButton("Clear Info");
+		btnClearInfo.setBounds(392, 319, 187, 66);
+		panel_AddCard.add(btnClearInfo);
+		
+		JButton btnAddCard = new JButton("Add Card");
+		btnAddCard.setBounds(53, 319, 187, 66);
+		panel_AddCard.add(btnAddCard);
 		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
